@@ -1,0 +1,97 @@
+/* Services Section */
+.services {
+  scroll-margin-top: 0.01rem;
+  min-height: 70vh;
+  width: 100%;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.services-header-section {
+  /* scroll-margin-top: 20rem; */
+  width: 100%;
+  /* background-color: #fff; */
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 3rem;
+  max-width: var(--site--max-width);
+}
+
+.services-header {
+  font-size: var(--font-large);
+  margin-bottom: 10px;
+}
+
+#hrline3 {
+  width: 33%;
+  height: 4px;
+  background-color: var(--secondary-color);
+}
+
+.services-content {
+  max-width: var(--site--max-width);
+  width: 100%;
+  padding: 0px 20px;
+}
+.services-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.service-box {
+  background-color: var(--light-pink-color);
+  color: var(--dark-color);
+  width: 300px;
+  height: 350px;
+  border-radius: var(--border-radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 20px;
+  box-shadow: var(--black-shadow);
+  transition: var(--transition-2);
+  transform-style: preserve-3d;
+  cursor: pointer;
+  background: linear-gradient(145deg, #fff, #f3f3f3);
+}
+
+.service-box:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--brown-shadow);
+  background: var(--accent-color-gradient);
+  color: var(--white-color);
+}
+
+.icon-text-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icon-text-wrapper .service-icon {
+  font-size: 3.3rem;
+  color: var(--secondary-color);
+}
+.service-box:hover .service-icon {
+  color: var(--white-color);
+}
+
+.service-title {
+  font-size: var(--font-medium-size-2);
+  font-weight: 600;
+  text-transform: uppercase;
+}

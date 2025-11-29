@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animations</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(199, 11, 11);
+        margin: 2rem;
+        padding: 0;
+      }
+
+      .first {
+        background-color: rgb(199, 11, 11);
+        min-height: 100vh;
+        margin: 2rem;
+        padding: 0;
+      }
+
+      .box {
+        background-color: aquamarine;
+        padding: 10px 10px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 20px;
+        border-radius: 10px;
+        height: 50px;
+        width: 135px;
+        margin: 20px;
+        text-align: center;
+      }
+
+      .bounce {
+        animation: move 3s infinite linear;
+      }
+
+      @keyframes move {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(100px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="first">
+      <div class="box bounce">Hello There</div>
+      <div class="box">Hello There</div>
+
+      <div class="color" data-color="#ff595e">A</div>
+      <div class="color" data-color="mediumseagreen">B</div>
+      <div class="color" data-color="#ffd166">C</div>
+      <div class="color" data-color="rebeccapurple">D</div>
+      <div class="color" id="red">E</div>
+      <div class="color" id="blue">E</div>
+      <div class="color" id="yellow">E</div>
+      <div class="color" id="purple">E</div>
+      <div class="color" id="blueviolet">E</div>
+      <div class="color" id="green">E</div>
+      <div class="color" id="gold">E</div>
+      <div class="color" id="orange">E</div>
+
+      <button id="toggleBtn">Toggle Rainbow</button>
+    </section>
+
+    <!-- <div class="box bounce">Hello There</div> -->
+    <!-- example HTML -->
+
+    <!-- <div class="color" data-color="#ff595e">A</div>
+    <div class="color" data-color="mediumseagreen">B</div>
+    <div class="color" data-color="#ffd166">C</div>
+    <div class="color" data-color="rebeccapurple">D</div>
+    <div class="color" id="red">E</div>
+    <div class="color" id="blue">E</div>
+    <div class="color" id="yellow">E</div>
+    <div class="color" id="purple">E</div>
+    <div class="color" id="blueviolet">E</div>
+    <div class="color" id="green">E</div>
+    <div class="color" id="gold">E</div>
+    <div class="color" id="orange">E</div>
+
+    <button id="toggleBtn">Toggle Rainbow</button> -->
+  </body>
+  <script>
+    /* Toggle rainbow that saves & restores computed background colors */
+    let rainbowActive = false;
+    let oldColors = [];
+
+    /* Use this function to toggle colors */
+    function toggleRainbowfy() {
+      const divs = Array.from(document.querySelectorAll(".color"));
+
+      if (!divs.length) {
+        console.warn("No elements with class .color found.");
+        return;
+      }
+
+      if (!rainbowActive) {
+        // Save current computed bg colors
+        oldColors = divs.map((d) => getComputedStyle(d).backgroundColor || "");
+
+        // Apply rainbow color (use data-color first, then id)
+        divs.forEach((d) => {
+          const color = d.dataset.color || d.id;
+          if (color) {
+            d.style.transition = "background-color 300ms ease";
+            d.style.backgroundColor = color;
+          } else {
+            console.warn("No data-color or id found for element:", d);
+          }
+        });
+
+        rainbowActive = true;
+      } else {
+        // Restore original colors
+        divs.forEach((d, i) => {
+          d.style.transition = "background-color 300ms ease";
+          d.style.backgroundColor = oldColors[i] || "";
+        });
+
+        rainbowActive = false;
+      }
+    }
+
+    /* Hook up to a button safely after DOM is ready */
+    document.addEventListener("DOMContentLoaded", () => {
+      document
+        .getElementById("toggleBtn")
+        .addEventListener("click", toggleRainbowfy);
+    });
+  </script>
+</html>

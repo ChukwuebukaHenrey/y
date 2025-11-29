@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Full‑Page Bio — Overlapping Avatar</title>
+  <style>
+    /* ------------------------------
+       Design tokens (easy to tweak)
+    ------------------------------ */
+    :root {
+      --page-max: 1100px;
+      --page-pad: clamp(16px, 4vw, 48px);
+      --avatar: clamp(140px, 18vw, 200px); /* profile size on desktop */
+      --gap: clamp(16px, 3vw, 32px);
+      --ink: #0b0b0b;
+      --muted: #6b7280; /* gray-500 */
+      --paper: #ffffff;
+      --backdrop: #0b0b0b; /* black header */
+      --ring: #ffffff; /* white ring around avatar */
+      --shadow: 0 20px 50px rgba(0,0,0,.25);
+    }
+
+    /* Reset & base */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: #f7f7f7;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+
+    /* Layout utility */
+    .container {
+      max-width: var(--page-max);
+      margin-inline: auto;
+      padding-inline: var(--page-pad);
+    }
+
+    /* ----------------------------------
+       Header (full width, black, avatar overlaps)
+    ---------------------------------- */
+    header.hero {
+      position: relative; /* creates containing block for absolute children */
+      background: var(--backdrop);
+      color: #fff;
+      padding: clamp(56px, 8vw, 96px) 0 clamp(120px, 14vw, 160px);
+      /* big bottom padding so the avatar can overlap */
+    }
+    header.hero .container { position: relative; }
+
+    /* Overlapping avatar: sits half inside header, half in main */
+    .avatar {
+      position: absolute;
+      left: var(--page-pad);
+      bottom: calc(-0.5 * var(--avatar)); /* push half below the header */
+      width: var(--avatar);
+      height: var(--avatar);
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--ring);
+      box-shadow: var(--shadow);
+      background: #ddd; /* in case image fails to load */
+    }
+
+    /* Name & role live to the right of the avatar */
+    .identity {
+      margin-left: calc(var(--avatar) + var(--gap));
+      min-height: calc(var(--avatar) * 0.5); /* ensures comfortable space next to avatar */
+    }
+    .identity h1 {
+      margin: 0 0 .25em 0;
+      font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+    }
+    .identity .role {
+      margin: 0;
+      font-weight: 600;
+      opacity: .85;
+    }
+
+    /* ----------------------------------
+       Main content
+    ---------------------------------- */
+    main { background: var(--paper); }
+
+    section.about {
+      /* top padding equals the amount the avatar intrudes
+         into the white section, plus a little breathing room */
+      padding: calc(0.5 * var(--avatar) + 24px) 0 clamp(40px, 7vw, 96px);
+    }
+
+    .about h2 {
+      font-size: .9rem;
+      letter-spacing: .18em;
+      font-weight: 800;
+      color: var(--ink);
+      margin: 0 0 1rem 0;
+    }
+
+    .prose {
+      max-width: 70ch; /* comfortable reading width */
+    }
+    .prose p { margin: 0 0 1rem 0; color: #222; }
+    .prose p.muted { color: var(--muted); }
+
+    /* Optional: subtle divider to echo the reference look */
+    .divider {
+      height: 1px;
+      background: #e5e7eb; /* gray-200 */
+      margin: 1.25rem 0 1.75rem;
+    }
+
+    /* ----------------------------------
+       Responsive behavior
+    ---------------------------------- */
+    @media (max-width: 640px) {
+      header.hero { padding-bottom: 32px; text-align: center; }
+      .avatar {
+        position: static;           /* stop overlapping on very small screens */
+        margin: 0 auto 16px;        /* center the avatar above the name */
+        width: 120px; height: 120px; border-width: 4px;
+      }
+      .identity { margin-left: 0; }
+      section.about { padding-top: 24px; }
+      .prose { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Full‑width header with avatar overlapping the boundary -->
+  <header class="hero">
+    <div class="container">
+      <img class="avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Profile portrait" />
+      <div class="identity">
+        <h1>Jake P. Fresco</h1>
+        <p class="role">Actor</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- White content area; text begins to the right of the overlapped avatar and then flows normally -->
+  <main>
+    <section class="about">
+      <div class="container">
+        <h2>ABOUT</h2>
+        <div class="divider" aria-hidden="true"></div>
+        <div class="prose">
+          <p>Already performing in front of family and relatives at the age of three, Jake Fresco knew that performing is for him. With his deep passion for musical theater, he extended his theater geek fan status to performer status and starred in Performavery hit musicals, such as <em>The Gray Paint</em> as Cal and <em>The Little Master</em> as Jeffrey Stone.</p>
+          <p>Jake holds a Bachelor’s degree in Theater Studies from Hexton University. He has also won various acting awards like the Omond Award as Best Actor in a Musical for <em>Jukebox Jester</em> and the Lytton Awards Best Supporting Actor for the musical <em>Romeo’s Juliet</em>.</p>
+          <p class="muted">When he’s not performing, he enjoys staying home, and he volunteers with the Octagon Theater Charity as an acting coach to children and youths interested in theater.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

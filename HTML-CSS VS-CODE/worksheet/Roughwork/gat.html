@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags provide information about the webpage to browsers and search engines -->
+    <meta charset="UTF-8"> <!-- Tells browser what character encoding to use -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes page responsive on mobile -->
+    <title>TechFlow - Modern Solutions</title> <!-- Text that appears in browser tab -->
+    
+    <style>
+        /* CSS RESET - Remove default browser styling to ensure consistency across different browsers */
+        * {
+            margin: 0; /* Remove default margins */
+            padding: 0; /* Remove default padding */
+            box-sizing: border-box; /* Include padding and border in element's total width/height */
+        }
+
+        /* CUSTOM CSS VARIABLES - Store reusable values like colors and spacing */
+        :root {
+            --primary-color: #6366f1; /* Main brand color (purple) */
+            --secondary-color: #ec4899; /* Accent color (pink) */
+            --dark-color: #1f2937; /* Dark text color */
+            --light-color: #f9fafb; /* Light background color */
+            --white: #ffffff; /* Pure white */
+            --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* Diagonal gradient */
+            --shadow: 0 10px 25px rgba(0,0,0,0.1); /* Soft shadow effect */
+            --border-radius: 12px; /* Rounded corner size */
+            --transition: all 0.3s ease; /* Smooth animation timing */
+        }
+
+        /* BODY STYLING - Sets up the overall page appearance */
+        .body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font stack (fallbacks included) */
+            line-height: 1.6; /* Space between lines of text */
+            color: var(--dark-color); /* Default text color */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        /* NAVIGATION BAR - Fixed header that stays at top when scrolling */
+        .navbar {
+            position: fixed; /* Stays in place when scrolling */
+            top: 0; /* Position at very top of page */
+            width: 100%; /* Full width */
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent white */
+            backdrop-filter: blur(10px); /* Blur effect for glass-like appearance */
+            padding: 1rem 2rem; /* Vertical and horizontal padding */
+            box-shadow: var(--shadow); /* Drop shadow */
+            z-index: 1000; /* High z-index to stay above other elements */
+            transition: var(--transition); /* Smooth transitions */
+        }
+
+        /* NAVIGATION CONTAINER - Flexbox layout for nav items */
+        .nav-container {
+            display: flex; /* Use flexbox layout */
+            justify-content: space-between; /* Space items apart */
+            align-items: center; /* Center items vertically */
+            max-width: 1200px; /* Maximum width */
+            margin: 0 auto; /* Center the container */
+        }
+
+        /* LOGO STYLING */
+        .logo {
+            font-size: 1.5rem; /* Large text */
+            font-weight: bold; /* Bold font */
+            background: var(--gradient); /* Gradient background */
+            -webkit-background-clip: text; /* Clip background to text */
+            background-clip: text; /* Standard property */
+            -webkit-text-fill-color: transparent; /* Make text transparent to show gradient */
+            color: transparent; /* Fallback for browsers that don't support background-clip */
+        }
+
+        /* NAVIGATION MENU */
+        .nav-menu {
+            display: flex; /* Horizontal layout */
+            list-style: none; /* Remove bullet points */
+            gap: 2rem; /* Space between menu items */
+        }
+
+        /* NAVIGATION LINKS */
+        .nav-link {
+            text-decoration: none; /* Remove underline */
+            color: var(--dark-color); /* Dark text color */
+            font-weight: 500; /* Medium font weight */
+            transition: var(--transition); /* Smooth color transition */
+            position: relative; /* For pseudo-element positioning */
+        }
+
+        /* HOVER EFFECT FOR NAV LINKS - Creates underline animation */
+        .nav-link::after {
+            content: ''; /* Empty content for pseudo-element */
+            position: absolute; /* Position relative to parent */
+            bottom: -5px; /* Position below text */
+            left: 0; /* Start from left */
+            width: 0; /* Start with no width */
+            height: 2px; /* Thin line */
+            background: var(--gradient); /* Gradient color */
+            transition: var(--transition); /* Smooth width transition */
+        }
+
+        /* EXPAND UNDERLINE ON HOVER */
+        .nav-link:hover::after {
+            width: 100%; /* Full width on hover */
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color); /* Change text color on hover */
+        }
+
+        /* MAIN HERO SECTION - The big attention-grabbing area */
+        .hero {
+            min-height: 100vh; /* Full viewport height */
+            background: var(--gradient); /* Gradient background */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            text-align: center; /* Center text */
+            color: var(--white); /* White text */
+            position: relative; /* For pseudo-element positioning */
+            overflow: hidden; /* Hide overflowing elements */
+        }
+
+        /* ANIMATED BACKGROUND SHAPES - Floating geometric elements */
+        .hero::before {
+            content: ''; /* Empty content */
+            position: absolute; /* Position over hero */
+            top: -50%; /* Position above viewport */
+            left: -50%; /* Position to the left */
+            width: 200%; /* Twice the width */
+            height: 200%; /* Twice the height */
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>'); /* SVG pattern */
+            animation: float 20s infinite linear; /* Continuous floating animation */
+        }
+
+        /* FLOATING ANIMATION KEYFRAMES - Defines the movement */
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); } /* Start position */
+            100% { transform: translate(-50px, -50px) rotate(360deg); } /* End position */
+        }
+
+        /* HERO CONTENT CONTAINER */
+        .hero-content {
+            max-width: 800px; /* Maximum width */
+            padding: 2rem; /* Padding around content */
+            z-index: 2; /* Above background animation */
+            position: relative; /* For z-index to work */
+        }
+
+        /* MAIN HEADING STYLING */
+        .hero h1 {
+            font-size: 3.5rem; /* Large text */
+            margin-bottom: 1rem; /* Space below */
+            font-weight: 700; /* Very bold */
+            line-height: 1.2; /* Tight line spacing */
+            animation: fadeInUp 1s ease; /* Entrance animation */
+        }
+
+        /* HERO SUBTITLE */
+        .hero p {
+            font-size: 1.25rem; /* Medium-large text */
+            margin-bottom: 2rem; /* Space below */
+            opacity: 0.9; /* Slightly transparent */
+            animation: fadeInUp 1s ease 0.2s both; /* Delayed entrance animation */
+        }
+
+        /* FADE IN UP ANIMATION - Elements slide up while fading in */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0; /* Start invisible */
+                transform: translateY(30px); /* Start 30px below */
+            }
+            to {
+                opacity: 1; /* End fully visible */
+                transform: translateY(0); /* End at normal position */
+            }
+        }
+
+        /* CALL-TO-ACTION BUTTON */
+        .cta-button {
+            display: inline-block; /* Block element that flows inline */
+            padding: 1rem 2rem; /* Vertical and horizontal padding */
+            background: var(--white); /* White background */
+            color: var(--primary-color); /* Colored text */
+            text-decoration: none; /* Remove underline */
+            border-radius: var(--border-radius); /* Rounded corners */
+            font-weight: 600; /* Semi-bold */
+            font-size: 1.1rem; /* Slightly larger text */
+            transition: var(--transition); /* Smooth transitions */
+            box-shadow: var(--shadow); /* Drop shadow */
+            animation: fadeInUp 1s ease 0.4s both; /* Delayed entrance */
+        }
+
+        /* BUTTON HOVER EFFECTS */
+        .cta-button:hover {
+            transform: translateY(-3px); /* Move up slightly */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Stronger shadow */
+            background: var(--light-color); /* Slightly different background */
+        }
+
+        /* FEATURES SECTION */
+        .features {
+            padding: 5rem 2rem; /* Large vertical padding */
+            background: var(--light-color); /* Light background */
+        }
+
+        /* CONTAINER FOR CONTENT - Centers and limits width */
+        .container {
+            max-width: 1200px; /* Maximum width */
+            margin: 0 auto; /* Center horizontally */
+        }
+
+        /* SECTION TITLE */
+        .section-title {
+            text-align: center; /* Center text */
+            font-size: 2.5rem; /* Large text */
+            margin-bottom: 3rem; /* Space below */
+            color: var(--dark-color); /* Dark text */
+            position: relative; /* For pseudo-element */
+        }
+
+        /* DECORATIVE LINE UNDER TITLE */
+        .section-title::after {
+            content: ''; /* Empty content */
+            position: absolute; /* Position relative to title */
+            bottom: -10px; /* Below the text */
+            left: 50%; /* Center horizontally */
+            transform: translateX(-50%); /* Perfect centering */
+            width: 80px; /* Fixed width */
+            height: 4px; /* Thickness */
+            background: var(--gradient); /* Gradient color */
+            border-radius: 2px; /* Rounded ends */
+        }
+
+        /* FEATURES GRID - Three column layout */
+        .features-grid {
+            display: grid; /* CSS Grid layout */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+            gap: 2rem; /* Space between grid items */
+            margin-top: 3rem; /* Space above grid */
+        }
+
+        /* INDIVIDUAL FEATURE CARD */
+        .feature-card {
+            background: var(--white); /* White background */
+            padding: 2rem; /* Internal padding */
+            border-radius: var(--border-radius); /* Rounded corners */
+            box-shadow: var(--shadow); /* Drop shadow */
+            text-align: center; /* Center content */
+            transition: var(--transition); /* Smooth transitions */
+            position: relative; /* For transform effects */
+            overflow: hidden; /* Hide overflowing content */
+        }
+
+        /* CARD HOVER EFFECTS */
+        .feature-card:hover {
+            transform: translateY(-10px); /* Move up on hover */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15); /* Stronger shadow */
+        }
+
+        /* FEATURE ICON STYLING */
+        .feature-icon {
+            width: 80px; /* Fixed width */
+            height: 80px; /* Fixed height */
+            background: var(--gradient); /* Gradient background */
+            border-radius: 50%; /* Perfect circle */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Center vertically */
+            justify-content: center; /* Center horizontally */
+            margin: 0 auto 1rem; /* Center and add bottom margin */
+            font-size: 2rem; /* Large icon */
+            color: var(--white); /* White icon color */
+        }
+
+        /* FEATURE CARD TITLES */
+        .feature-card h3 {
+            font-size: 1.5rem; /* Medium-large text */
+            margin-bottom: 1rem; /* Space below */
+            color: var(--dark-color); /* Dark text */
+        }
+
+        /* FEATURE CARD DESCRIPTIONS */
+        .feature-card p {
+            color: #6b7280; /* Gray text color */
+            line-height: 1.6; /* Good line spacing */
+        }
+
+        /* CONTACT SECTION */
+        .contact {
+            padding: 5rem 2rem; /* Large padding */
+            background: var(--white); /* White background */
+        }
+
+        /* CONTACT FORM STYLING */
+        .contact-form {
+            max-width: 600px; /* Limit width */
+            margin: 0 auto; /* Center form */
+            background: var(--light-color); /* Light background */
+            padding: 3rem; /* Internal padding */
+            border-radius: var(--border-radius); /* Rounded corners */
+            box-shadow: var(--shadow); /* Drop shadow */
+        }
+
+        /* FORM GROUP - Container for label and input */
+        .form-group {
+            margin-bottom: 1.5rem; /* Space between groups */
+        }
+
+        /* FORM LABELS */
+        .form-group label {
+            display: block; /* Full width */
+            margin-bottom: 0.5rem; /* Space below label */
+            font-weight: 600; /* Semi-bold */
+            color: var(--dark-color); /* Dark text */
+        }
+
+        /* FORM INPUTS AND TEXTAREA */
+        .form-group input,
+        .form-group textarea {
+            width: 100%; /* Full width */
+            padding: 1rem; /* Internal padding */
+            border: 2px solid #e5e7eb; /* Light border */
+            border-radius: var(--border-radius); /* Rounded corners */
+            font-size: 1rem; /* Normal text size */
+            transition: var(--transition); /* Smooth transitions */
+            font-family: inherit; /* Use same font as parent */
+        }
+
+        /* INPUT FOCUS EFFECTS */
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none; /* Remove default outline */
+            border-color: var(--primary-color); /* Colored border */
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1); /* Glow effect */
+        }
+
+        /* TEXTAREA SPECIFIC STYLING */
+        .form-group textarea {
+            resize: vertical; /* Only allow vertical resize */
+            min-height: 120px; /* Minimum height */
+        }
+
+        /* SUBMIT BUTTON */
+        .submit-btn {
+            width: 100%; /* Full width */
+            padding: 1rem; /* Padding */
+            background: var(--gradient); /* Gradient background */
+            color: var(--white); /* White text */
+            border: none; /* Remove border */
+            border-radius: var(--border-radius); /* Rounded corners */
+            font-size: 1.1rem; /* Slightly larger text */
+            font-weight: 600; /* Semi-bold */
+            cursor: pointer; /* Pointer cursor */
+            transition: var(--transition); /* Smooth transitions */
+        }
+
+        /* SUBMIT BUTTON HOVER */
+        .submit-btn:hover {
+            transform: translateY(-2px); /* Move up slightly */
+            box-shadow: var(--shadow); /* Add shadow */
+        }
+
+        /* FOOTER STYLING */
+        .footer {
+            background: var(--dark-color); /* Dark background */
+            color: var(--white); /* White text */
+            text-align: center; /* Center text */
+            padding: 2rem; /* Padding */
+        }
+
+        /* SCROLL TO TOP BUTTON */
+        .scroll-top {
+            position: fixed; /* Fixed position */
+            bottom: 30px; /* Distance from bottom */
+            right: 30px; /* Distance from right */
+            background: var(--gradient); /* Gradient background */
+            color: var(--white); /* White text */
+            border: none; /* No border */
+            border-radius: 50%; /* Perfect circle */
+            width: 50px; /* Fixed width */
+            height: 50px; /* Fixed height */
+            font-size: 1.5rem; /* Large icon */
+            cursor: pointer; /* Pointer cursor */
+            transition: var(--transition); /* Smooth transitions */
+            opacity: 0; /* Start invisible */
+            visibility: hidden; /* Start hidden */
+            z-index: 1000; /* High z-index */
+        }
+
+        /* SHOW SCROLL BUTTON WHEN NEEDED */
+        .scroll-top.visible {
+            opacity: 1; /* Visible */
+            visibility: visible; /* Shown */
+        }
+
+        /* SCROLL BUTTON HOVER */
+        .scroll-top:hover {
+            transform: scale(1.1); /* Slightly larger */
+        }
+
+        /* RESPONSIVE DESIGN - Styles for smaller screens */
+        @media (max-width: 768px) {
+            /* MOBILE NAVIGATION */
+            .nav-menu {
+                display: none; /* Hide navigation menu on mobile */
+            }
+
+            /* MOBILE HERO TEXT */
+            .hero h1 {
+                font-size: 2.5rem; /* Smaller heading */
+            }
+
+            .hero p {
+                font-size: 1.1rem; /* Smaller paragraph */
+            }
+
+            /* MOBILE SECTION TITLE */
+            .section-title {
+                font-size: 2rem; /* Smaller title */
+            }
+
+            /* MOBILE FORM */
+            .contact-form {
+                padding: 2rem; /* Less padding */
+            }
+        }
+
+        /* INTERSECTION OBSERVER ANIMATIONS - Elements fade in when scrolled into view */
+        .fade-in {
+            opacity: 0; /* Start invisible */
+            transform: translateY(30px); /* Start below */
+            transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
+        }
+
+        .fade-in.visible {
+            opacity: 1; /* Become visible */
+            transform: translateY(0); /* Move to normal position */
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION BAR - Fixed header with logo and menu -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- LOGO - Brand name with gradient text -->
+            <div class="logo">TechFlow</div>
+            
+            <!-- NAVIGATION MENU - Links to different sections -->
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION - Main banner area with call-to-action -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <!-- MAIN HEADING - Primary message -->
+            <h1>Transform Your Digital Experience</h1>
+            
+            <!-- SUBTITLE - Supporting description -->
+            <p>Discover cutting-edge solutions that revolutionize the way you work, create, and connect in the digital world.</p>
+            
+            <!-- CALL-TO-ACTION BUTTON - Primary action -->
+            <a href="#contact" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION - Showcase of key benefits -->
+    <section class="features" id="features">
+        <div class="container">
+            <!-- SECTION TITLE -->
+            <h2 class="section-title fade-in">Why Choose TechFlow?</h2>
+            
+            <!-- FEATURES GRID - Three-column layout -->
+            <div class="features-grid">
+                <!-- FEATURE 1 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Lightning Fast</h3>
+                    <p>Experience blazing-fast performance with our optimized solutions that deliver results in milliseconds.</p>
+                </div>
+                
+                <!-- FEATURE 2 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure & Reliable</h3>
+                    <p>Your data is protected with enterprise-grade security and 99.9% uptime guarantee.</p>
+                </div>
+                
+                <!-- FEATURE 3 -->
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎨</div>
+                    <h3>Beautiful Design</h3>
+                    <p>Stunning interfaces that combine aesthetics with functionality for the perfect user experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION - Form for user inquiries -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            
+            <!-- CONTACT FORM -->
+            <form class="contact-form fade-in" id="contactForm">
+                <!-- NAME INPUT -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <!-- EMAIL INPUT -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <!-- MESSAGE TEXTAREA -->
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                
+                <!-- SUBMIT BUTTON -->
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER - Copyright and additional info -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TechFlow. All rights reserved. Built with modern web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP BUTTON - Fixed position button -->
+    <button class="scroll-top" id="scrollTop">↑</button>
+
+    <script>
+        // JAVASCRIPT CODE - Adds interactivity to the page
+
+        // SCROLL TO TOP FUNCTIONALITY
+        // Get reference to the scroll-to-top button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        // Function to check scroll position and show/hide button
+        function toggleScrollButton() {
+            // If user has scrolled more than 300 pixels from top
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible'); // Show button
+            } else {
+                scrollTopBtn.classList.remove('visible'); // Hide button
+            }
+        }
+
+        // Listen for scroll events and call our function
+        window.addEventListener('scroll', toggleScrollButton);
+
+        // When button is clicked, scroll to top smoothly
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0, // Scroll to very top
+                behavior: 'smooth' // Smooth scrolling animation
+            });
+        });
+
+        // SMOOTH SCROLLING FOR NAVIGATION LINKS
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        // Add click event to each navigation link
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default jump behavior
+                
+                // Get the target section ID from the href attribute
+                const targetId = link.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                // If target section exists, scroll to it
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth', // Smooth scrolling
+                        block: 'start' // Align to top of section
+                    });
+                }
+            });
+        });
+
+        // INTERSECTION OBSERVER - Animates elements when they come into view
+        // Create new Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            // Loop through each element being observed
+            entries.forEach(entry => {
+                // If element is in viewport
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); // Add visible class to trigger animation
+                }
+            });
+        }, {
+            threshold: 0.1 // Trigger when 10% of element is visible
+        });
+
+        // Find all elements with 'fade-in' class and observe them
+        const fadeElements = document.querySelectorAll('.fade-in');
+        fadeElements.forEach(element => {
+            observer.observe(element); // Start observing each element
+        });
+
+        // CONTACT FORM HANDLING
+        // Get reference to the contact form
+        const contactForm = document.getElementById('contactForm');
+
+        // Handle form submission
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Please fill in all fields!'); // Show error message
+                return;
+            }
+            
+            // Simulate form submission (in real app, you'd send to server)
+            alert(`Thank you, ${name}! Your message has been sent.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // NAVBAR SCROLL EFFECT - Changes navbar appearance when scrolling
+        const navbar = document.querySelector('.navbar');
+
+        // Function to handle navbar styling based on scroll position
+        function handleNavbarScroll() {
+            if (window.pageYOffset > 100) {
+                // When scrolled down, make navbar more opaque
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                // When at top, make navbar more transparent
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleNavbarScroll);
+
+        // PARALLAX EFFECT FOR HERO SECTION
+        // Get reference to hero section
+        const hero = document.querySelector('.hero');
+
+        // Function to create parallax scrolling effect
+        function parallaxEffect() {
+            const scrolled = window.pageYOffset;
+            const speed = scrolled * 0.5; // Adjust speed of parallax
+            
+            // Apply transform to create parallax effect
+            hero.style.transform = `translateY(${speed}px)`;
+        }
+
+        // Listen for scroll events (with throttling for performance)
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    parallaxEffect(); // Apply parallax effect
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+        // TYPING ANIMATION FOR HERO TITLE (Optional enhancement)
+        // This creates a typewriter effect for the main heading
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = ''; // Clear existing text
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i); // Add one character
+                    i++;
+                    setTimeout(type, speed); // Continue after delay
+                }
+            }
+            
+            type(); // Start typing animation
+        }
+
+        // Apply typing effect to hero title after page loads
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero h1');
+            const originalText = heroTitle.textContent;
+            setTimeout(() => {
+                typeWriter(heroTitle, originalText, 50); // Start typing with 50ms delay between characters
+            }, 1000); // Wait 1 second before starting
+        });
+
+        // PERFORMANCE OPTIMIZATION - Debounce scroll events
+        // This prevents too many scroll events from firing
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Use debounced version of scroll handlers for better performance
+        const debouncedToggleScroll = debounce(toggleScrollButton, 10);
+        const debouncedNavbarScroll = debounce(handleNavbarScroll, 10);
+
+        // Replace original scroll listeners with debounced versions
+        window.removeEventListener('scroll', toggleScrollButton);
+        window.removeEventListener('scroll', handleNavbarScroll);
+        window.addEventListener('scroll', debouncedToggleScroll);
+        window.addEventListener('scroll', debouncedNavbarScroll);
+
+        // EASTER EGG - Konami Code
+        // Secret sequence: ↑↑↓↓←→←→BA
+        const konamiCode = [
+            'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+            'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+            'KeyB', 'KeyA'
+        ];
+        let konamiIndex = 0;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.code === konamiCode[konamiIndex]) {
+                konamiIndex++;
+                if (konamiIndex === konamiCode.length) {
+                    // Easter egg activated!
+                    document.body.style.animation = 'rainbow 2s infinite';
+                    setTimeout(() => {
+                        document.body.style.animation = '';
+                        konamiIndex = 0;
+                    }, 5000);
+                }
+            } else {
+                konamiIndex = 0; // Reset if wrong key pressed
+            }
+        });
+
+        // Add rainbow animation for easter egg
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        console.log('🎉 Modern Landing Page Loaded Successfully!');
+        console.log('💡 Try the Konami Code: ↑↑↓↓←→←→BA');
+    </script>
+</body>
+</html>

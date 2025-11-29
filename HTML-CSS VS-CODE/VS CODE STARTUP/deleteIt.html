@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Your page description" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Responsive Flex Container */
+      .flex-container {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: aquamarine;
+      }
+      /* Flexible Items */
+      .flex-item {
+        flex: 1 2 300px;
+        min-width: 250px;
+        max-width: 350px;
+        color: white;
+        background-color: black;
+        padding: 20px 30px;
+        border-radius: 15px;
+        transition: all 0.3s ease-in-out;
+      }
+
+      /* Responsive Card Grid */
+      .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 2rem;
+        background-color: brown;
+      }
+
+      .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+        flex: 1 2 300px;
+        min-width: 100px;
+        max-width: 350px;
+      }
+
+      .coloredSide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(102, 43, 158);
+        border-bottom-left-radius: none;
+        border-bottom-right-radius: none;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        flex: 1 2 300px;
+        min-width: 100px;
+        max-width: 350px;
+        padding: 10px 20px;
+      }
+
+      .uncoloredSide {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: none;
+        border-top-left-radius: none;
+        flex: 1 2 300px;
+        min-width: 100px;
+        max-width: 350px;
+        padding: 10px 20px;
+        background-color: #fff;
+      }
+
+      @media (max-width: 1300px) {
+        .flex-container {
+          flex-direction: column;
+        }
+        .flex-container > .flex-item:hover {
+          transform: translateY(-3px);
+          border: 4px;
+          font-size: 20px;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+          border-color: rgb(17, 17, 17);
+          border-style: solid;
+          background-color: tr;
+          color: black;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+      }
+
+      @media (max-width: 1300px) {
+        .cards-container {
+          flex-direction: column;
+        }
+        .cards-container > .card:hover {
+          transform: translateY(-3px);
+          border: 4px;
+          font-size: 20px;
+          align-items: center;
+          justify-content: center;
+          display: flex;
+
+          color: black;
+          font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex-container">
+      <div class="flex-item">flex 1</div>
+      <div class="flex-item">flex 2</div>
+      <div class="flex-item">flex 3</div>
+      <div class="flex-item">flex 4</div>
+    </div>
+
+    <div class="cards-container">
+      <div class="card">
+        <div class="coloredSide">
+          <p>Card 1</p>
+        </div>
+
+        <div class="uncoloredSide">
+          <p>Empty Space</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="coloredSide">
+          <p>Card 2</p>
+        </div>
+
+        <div class="uncoloredSide">
+          <p>Empty Space</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="coloredSide">
+          <p>Card 3</p>
+        </div>
+
+        <div class="uncoloredSide">
+          <p>Empty Space</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

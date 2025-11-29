@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    font-family: 'Poppins, Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+ body {
+    /* background-color: #af0909; */
+    width:100%;
+    height: 100%;
+}
+.signupPage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    background-color: rgb(208, 221, 210);
+    backdrop-filter: blur(10px);
+    
+}
+
+.messages{
+    opacity: 0;
+    font-size: 20px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.formBox {
+    width: 80%;
+    height: 90%;
+    padding: 40px;
+    background-color:  rgb(223, 245, 226);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+    }
+
+    .formBoxleft {
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        /* margin: 1rem; */
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+        font-size: 30px;
+    }
+    .logo img {
+        width: 40px;
+        height: 40px;
+    }
+
+    #signupHeading {
+        font-size: 30px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 20px;
+    }
+    form {
+        width: 100%;
+    }
+    .inputBox {
+        display: flex;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .inputBox input {
+        width: 350px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+        outline: none;
+    }
+    .inputBox input:hover{
+        border: solid 0.1px rgb(5, 22, 5);
+    }
+    .inputBox label {
+        /* position: absolute; */
+        background-color: rgba(26, 100, 29, 0.747);
+        color: white;   
+        padding: 10px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+    }
+
+    .passwordBox {
+        display: flex;
+        gap: 10px;
+        width: 95%;
+        margin-bottom: 20px;
+    }
+
+    .passwordBox .passwordBoxLeft,
+     .passwordBox .passwordBoxRight {
+        width: 50%;
+        display: flex;
+    }
+   .passwordBoxLeft label{
+        background-color:rgba(26, 100, 29, 0.747);
+        color: white;   
+        padding: 10px;
+        height: 35px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .passwordBox input:hover {
+        border: solid 0.1px rgb(5, 22, 5);
+    }
+
+    #password {
+        width: 150px;
+        height: 35px;
+        padding: 5px;
+         border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    #password:hover {
+        border: solid 0.1px rgb(5, 22, 5);
+    }
+    #confirmPassword {
+        width: 150px;
+        height: 35px;
+        padding:5px;
+         border-top-right-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+
+    .passwordBox .passwordBoxRight label{
+        background-color:rgba(26, 100, 29, 0.747);  
+        height: 35px;
+        color: white;   
+        padding: 10px;
+        border-top-left-radius: 25px;
+        border-bottom-left-radius: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inputBoxButtons {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+    }
+
+    #signupButton {
+        width: 90%;
+        padding: 10px;
+        font-size: 18px;
+        background-color:rgba(11, 25, 73, 0.671);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        transition: all 0.3s ease-in-out;
+        margin: 0 auto;
+    }
+
+      /* #signInButton {
+        width: 50%;
+        padding: 10px;
+        font-size: 18px;
+        background-color: #FFB347;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        transition: all 0.3s ease-in-out;
+    } */
+
+    #signupButton:hover, #signInButton:hover {
+        background-color: rgb(9, 19, 53);
+        transform: scale(1.05);
+    }
+
+    #signInText{
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .formBoxRight {
+        width: 50%;
+        height: 100%;
+        padding: 20px;
+        /* margin: 1rem; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .signupImage {
+        width: 100%;
+        height: auto;
+    }
+    .signupImage img {
+        width: 100%;
+        height: 100%;
+        margin-left: 5rem;
+    }
+
+form .error label {
+    background-color: red;
+}
+
+form .error input:hover {
+    border: 2px solid red;
+}

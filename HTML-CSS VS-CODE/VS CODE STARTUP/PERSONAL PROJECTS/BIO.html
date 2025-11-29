@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BizLink – Connect. Trade. Grow.</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-light-gray: #f5f5f5;
+  --color-dark-gray: #222222;
+  --color-medium-gray: #777777;
+  --color-accent-green: #b6ff00;
+  --color-accent-green-hover: #a4e600;
+  --color-accent-green-gradient: linear-gradient(90deg, #b6ff00, #a4e600);
+  --color-accent-green-shadow: 0 0 15px rgba(182, 255, 0, 0.6);
+  --font-main: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+body {
+  background: var(--color-white);
+  color: var(--color-dark-gray);
+  line-height: 1.6;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-accent-green);
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-dark-gray);
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent-green);
+}
+
+/* HERO */
+.hero {
+  background: var(--color-dark-gray);
+  color: var(--color-white);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--color-medium-gray);
+  max-width: 600px;
+  margin: 0 auto 25px;
+}
+
+.btn-primary, .btn-outline {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--color-accent-green);
+  color: var(--color-black);
+  box-shadow: var(--color-accent-green-shadow);
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-green-hover);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-accent-green);
+  color: var(--color-accent-green);
+}
+
+.btn-outline:hover {
+  background: var(--color-accent-green);
+  color: var(--color-black);
+}
+
+/* FEATURES */
+.features {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.feature-card {
+  background: var(--color-light-gray);
+  border-radius: 12px;
+  padding: 25px;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: var(--color-accent-green-shadow);
+}
+
+/* HOW IT WORKS */
+.how-it-works {
+  background: var(--color-dark-gray);
+  color: var(--color-white);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.step span {
+  font-size: 2rem;
+  background: var(--color-accent-green);
+  color: var(--color-black);
+  padding: 10px 20px;
+  border-radius: 50%;
+}
+
+/* TESTIMONIALS */
+.testimonials {
+  background: var(--color-light-gray);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.testimony-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.testimony-card {
+  background: var(--color-white);
+  border-radius: 10px;
+  padding: 25px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* PRICING */
+.pricing {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.price-card {
+  background: var(--color-light-gray);
+  border-radius: 12px;
+  padding: 30px;
+  width: 250px;
+  transition: 0.3s;
+}
+
+.price-card.featured {
+  background: var(--color-accent-green);
+  color: var(--color-black);
+  box-shadow: var(--color-accent-green-shadow);
+}
+
+/* CTA */
+.cta {
+  background: var(--color-dark-gray);
+  color: var(--color-white);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta .btn-primary {
+  margin-top: 20px;
+}
+
+/* FOOTER */
+footer {
+  background: var(--color-black);
+  color: var(--color-medium-gray);
+  text-align: center;
+  padding: 30px;
+  font-size: 0.9rem;
+}
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <header class="hero">
+    <nav class="navbar">
+      <h1 class="logo">BizLink</h1>
+      <ul class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Features</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#" class="btn-outline">Sign In</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero-content">
+      <h2>Connect. Trade. Grow.</h2>
+      <p>Empowering small businesses, tailors, and retailers to reach trusted buyers and manage sales effortlessly.</p>
+      <div class="hero-buttons">
+        <a href="#" class="btn-primary">Get Started</a>
+        <a href="#" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>What We Offer</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>🛍️ Smart Marketplace</h3>
+        <p>Find verified buyers and sellers instantly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💬 In-App Communication</h3>
+        <p>Chat and transact securely with partners.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📦 Inventory & Finance Tools</h3>
+        <p>Track stock, income, and expenses easily.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🪙 Crypto Payments</h3>
+        <p>Pay globally with ease and transparency.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="how-it-works">
+    <h2>How It Works</h2>
+    <div class="steps">
+      <div class="step">
+        <span>1</span>
+        <p>Create a Merchant Account</p>
+      </div>
+      <div class="step">
+        <span>2</span>
+        <p>List Your Products or Services</p>
+      </div>
+      <div class="step">
+        <span>3</span>
+        <p>Connect & Grow Your Business</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>Built for the People, Powered by the Community</h2>
+    <div class="testimony-grid">
+      <div class="testimony-card">
+        <p>“BizLink helped me reach more clients and manage my tailoring business easily.”</p>
+        <h4>— Ada, Tailor</h4>
+      </div>
+      <div class="testimony-card">
+        <p>“Smooth payments and great customer support!”</p>
+        <h4>— Chinedu, Retailer</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <h2>Choose Your Plan</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Free</h3>
+        <p>Basic store setup</p>
+        <button>Start Free</button>
+      </div>
+      <div class="price-card featured">
+        <h3>Pro</h3>
+        <p>Inventory + Analytics</p>
+        <button>Upgrade</button>
+      </div>
+      <div class="price-card">
+        <h3>Business</h3>
+        <p>Full features + Crypto Payments</p>
+        <button>Go Premium</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Join thousands of entrepreneurs building their future with us.</h2>
+    <a href="#" class="btn-primary">Create Free Account</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 BizLink. All rights reserved.</p>
+  </footer>
+</body>
+</html>

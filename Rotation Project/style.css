@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.hero {
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(3D_IMAGES/bg.jpg);
+  /* z-index: -1; */
+  object-fit: cover;
+  object-position: center;
+  filter: contrast(0.2);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    z-index: 2;
+}
+
+.banner {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.banner .product {
+  background-color: red;
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  bottom: 170px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  transition: 0.7s;
+}
+
+.banner .product .soda {
+  background-image: url(3D_IMAGES/bg.png);
+  background: url(3D_IMAGES/mockup.png);
+  width: 280px;
+  aspect-ratio: 2/4;
+}

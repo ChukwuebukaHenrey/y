@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tailwind Test Project</title>
+
+    <link rel="stylesheet" href="styles.css">
+ </head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+    <header class="bg-white shadow">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex items-center justify-between">
+            <h1 class="text-xl font-semibold text-primary">Tailwind Test</h1>
+            <nav class="space-x-4 text-sm">
+                <a class="text-gray-600 hover:text-primary" href="#">Home</a>
+                <a class="text-gray-600 hover:text-primary" href="#">Docs</a>
+                <a class="text-gray-600 hover:text-primary" href="#">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-12">
+        <section class="mb-8">
+            <div class="rounded-lg bg-white p-8 shadow">
+                <h2 class="text-2xl font-bold mb-2">Welcome to your Tailwind test project</h2>
+                <p class="text-gray-600 mb-4">This is a minimal example using the Tailwind Play CDN. Resize the window to see responsive utilities in action.</p>
+                <div class="flex gap-3">
+                    <button class="px-4 py-2 bg-primary text-white rounded-md hover:bg-indigo-600">Primary</button>
+                    <button class="px-4 py-2 bg-gray-200 text-gray-800 rounded-md hover:bg-gray-300">Secondary</button>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3 class="text-lg font-semibold mb-4">Responsive cards</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <article class="p-6 bg-white rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">Card One</h4>
+                    <p class="text-sm text-gray-600">Utilities for spacing, typography, and layout are applied here.</p>
+                </article>
+                <article class="p-6 bg-white rounded-lg shadow">
+                    <h4 class="font-semibold mb-2">Card Two</h4>
+                    <p class="text-sm text-gray-600">Use the Play CDN for quick prototyping before adding a build step.</p>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-12 py-6 bg-white">
+        <div class="max-w-4xl mx-auto px-6 text-sm text-gray-500">
+            Built with Tailwind CSS — open dist/index.html in your browser to view.
+        </div>
+    </footer>
+</body>
+</html>

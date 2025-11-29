@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .body{
+            gap: 10px;
+            margin: 3rem;
+        }
+
+        .box {
+  width: 120px; height: 60px;
+  background: tomato; color: white;
+  display: flex; align-items: center; justify-content: center;
+  margin: 20px; font-weight: bold;
+}
+
+.translate {
+  animation: move 2s infinite alternate;
+}
+
+@keyframes move {
+  from { transform: translateX(0); }
+  to   { transform: translateX(100px); }
+}
+.rotate {
+  animation: spin 2s infinite linear;
+  margin-top: 50px;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.scale {
+  animation: grow 2s infinite alternate;
+  margin-top: 50px;
+}
+
+@keyframes grow {
+  from { transform: scale(1); }
+  to   { transform: scale(1.5); }
+}
+
+.skew {
+  animation: slant 2s infinite alternate;
+  margin-top: 50px;
+}
+
+@keyframes slant {
+  from { transform: skew(0deg, 0deg); }
+  to   { transform: skew(20deg, 10deg); }
+}
+
+.combo {
+  animation: comboAnim 3s infinite alternate;
+  margin-top: 50px;
+}
+
+@keyframes comboAnim {
+  0%   { transform: translateX(0) scale(1) rotate(0deg); }
+  50%  { transform: translateX(50px) scale(1.2) rotate(20deg); }
+  100% { transform: translateX(100px) scale(1) rotate(-20deg); }
+}
+
+.hover {
+  transition: transform 0.5s ease;
+  margin-top: 50px;
+}
+.hover:hover {
+  transform: translateY(-10px) scale(1.2) rotate(10deg);
+}
+
+.origin {
+  animation: rotateOrigin 2s infinite linear;
+  transform-origin: top left; /* pivot point */
+}
+@keyframes rotateOrigin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+    /* transform: matrix(1, 0.5, -0.5, 1, 50, 0); */
+/* This means: scale/skew/translate combined */
+    </style>
+</head>
+<body>
+    <div class="box translate">Translate</div>
+    <div class="box rotate">Rotate</div>
+    <div class="box scale">Scale</div>
+    <div class="box skew">Skew</div>
+    <div class="box combo">Combo</div>
+    <div class="box hover">Hover Me</div>
+
+
+<!-- transform: translate(x, y) → moves element.
+
+transform: rotate(deg) → spins element.
+
+transform: scale(x, y) → resizes.
+
+transform: skew(x, y) → slants.
+
+You can combine multiple transforms inside one transform.
+
+Animations are made with @keyframes.
+
+transition is for smooth state changes (e.g. hover). -->
+    <div class="box origin">Origin</div>
+
+
+</body>
+</html>

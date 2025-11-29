@@ -1,0 +1,198 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Poppins, Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+}
+.messages {
+  opacity: 0;
+  font-size: 20px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.signInPage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 100vh;
+  background-color: rgb(208, 221, 210);
+  backdrop-filter: blur(10px);
+}
+
+.formBox {
+  width: 90%;
+  height: 90%;
+  padding: 40px;
+  background-color: rgb(223, 245, 226);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+
+#signInHeading {
+  font-size: 30px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+}
+.inputBox {
+  display: flex;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  outline: none;
+}
+.inputBox input:hover {
+  border: solid 0.1px rgb(5, 22, 5);
+}
+.inputBox label {
+  /* position: absolute; */
+  background-color: rgba(18, 131, 22, 0.747);
+  color: white;
+  padding: 10px;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.inputBoxButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#forgetPassword {
+  text-align: right;
+  font-size: 14px;
+}
+
+#signInButton {
+  width: 90%;
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgba(11, 25, 73, 0.671);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+}
+
+
+#signInButton:hover {
+  background-color: rgb(9, 19, 53);
+  transform: scale(1.05);
+}
+
+.hrlineContainer {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+#hrline {
+  width: 120px;
+  height: 2px;
+  background-color: black;
+  border-radius: 2px;
+  margin-bottom: 20px;
+}
+
+.hrlineContainer > p {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#non_member_link {
+  text-align: center;
+  font-size: 17px;
+}
+
+#registerLink {
+  text-decoration: underline;
+  color: rgba(4, 46, 18, 0.74);
+}
+
+.spanClass {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+#spanId {
+  width: 40px;
+  height: 40px;
+}
+
+#spanId img {
+  height: 100%;
+  width: 100%;
+}
+
+.formBoxRight {
+  width: 50%;
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signInImage {
+  width: 100%;
+  height: 100%;
+}
+
+.signInImage img {
+  width: 100%;
+  height: 100%;
+}

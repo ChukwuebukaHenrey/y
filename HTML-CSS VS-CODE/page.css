@@ -1,0 +1,222 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.header {
+  background-color: blueviolet;
+  height: 100vh;
+}
+
+.navBar {
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 90px 0px 90px;
+}
+
+.nav-lists {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  font-family: Roboto;
+}
+
+.nav_list > a {
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+#logo {
+  color: white;
+  font-size: 20px;
+  font-family: Roboto;
+  font-style: italic;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+  color: white;
+  font-size: 13px;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  height: calc(100vh - 50px);
+}
+
+.left-hero-section,
+.right-hero-section{
+  width: 50%;
+}
+
+.left-hero-section {
+  padding-left: 7rem;
+}
+
+.left-hero-section > p {
+  color: white;
+  font-family: Roboto;
+  font-size: 19px;
+}
+
+.left-hero-section > h1 {
+  color: white;
+  font-family: Roboto;
+  font-size: 40px;
+}
+
+.left-hero-section > button {
+  background-color: white;
+  color: blueviolet;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-size: 13px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.left-hero-section > button:hover {
+  background-color: blueviolet;
+  color: white;
+  border: 1px solid white;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 250px);
+  grid-template-rows: repeat(2, 250px);
+  gap: 10px;
+}
+
+.grid-image-container-1,
+.grid-image-container-2 {
+  position: relative;
+  overflow: hidden; 
+  cursor: pointer;
+  /* check the meaning of this*/
+}
+
+
+.grid-image-container-1 img:first-child,
+.grid-image-container-2 img:first-child {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* check the meaning of this*/
+}
+
+
+.grid-image-container-1 img:last-child,
+.grid-image-container-2 img:last-child {
+  position: absolute;
+  /*Also check the meaning of absolute*/
+  /*I beleive this aspect of this code makes the second image invisible*/
+  /* as well fit it and give's it a transition*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+
+.grid-image-container-1:hover img:last-child,
+.grid-image-container-2:hover img:last-child {
+  opacity: 1;
+  /*This part reveals the second image when your cursor hovers over it*/
+}
+
+.page-content {
+  height: 100vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.page-content-section-1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  height: 30vh;
+  /*This divides the content section into two parts*/
+  /*This part shows the new arrivals and all the links*/
+  width: 100%;
+  color: black;
+}
+
+.page-content-header {
+  font-family: Roboto;
+  font-size: 40px;
+}
+
+.page-content-links-container {
+  display: flex;
+  gap: 30px;
+}
+
+.page-content-link {
+  text-decoration: none;
+  color: black;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.page-content-section-2 {
+  height: 70vh;
+  width: 100%;
+}
+
+.grid-content-container {
+  display: grid;
+  grid-template-columns: repeat(4, 250px);
+  grid-template-rows: repeat(2, 300px);
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
+  
+}
+
+.grid-content {
+  height: 100%;
+  width: 100%;
+}
+
+.image-div {
+  background-color: rgb(185, 181, 181);
+  width: 100%;
+  height: 80%;
+}
+
+.image-div > img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.text-div {
+  text-align: center;
+  padding:10 px;
+}

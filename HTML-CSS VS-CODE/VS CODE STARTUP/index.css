@@ -1,0 +1,88 @@
+/* General Page Styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ccc8c8;
+  color: #444;
+  margin: 2rem;
+}
+
+/* Main Biography Card */
+.bio-card {
+  max-width: 700px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Header Section with Image + Title/Text */
+.bio-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.bio-header img {
+  border-radius: 15%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Text inside header */
+.bio-header h1 {
+  color: #0057b7;
+  margin-top: 0;
+}
+
+.bio-header p {
+  color: black;
+  line-height: 1.6;
+}
+
+/* General Paragraph Styling */
+p {
+  color: black;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+/* Hobbies List */
+.hobbies {
+  list-style: none;
+  padding: 0;
+}
+
+.hobbies li {
+  background: #f0f0f0;
+  padding: 6px 10px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+}
+
+/* Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background: #f5f5f5;
+}
+
+/* Responsive: Stack image & text vertically on small screens */
+@media (max-width: 500px) {
+  .bio-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}

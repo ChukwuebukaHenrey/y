@@ -1,0 +1,131 @@
+when styling in-line styling with css all css styles must be stored within the style tags<style>. 
+semantic tags are basically tags that help the user or person writing or reading a particular code the specific functions of that code.
+They basically help programers write a more understandable code
+Semantic tags don’t directly define a “function” of the code like JavaScript functions do — instead, they describe the purpose or meaning of the content in that part of the HTML.
+selectors are used in css so as to specifically target elements in your code to style them according to your wish.
+there are several types of selectors such as the universal selectors which targets every elements of your code regardless of hattag they are. 
+it represented by the "*" sign
+2. Type selector: this targets elements by their html tags
+3. class selectors: this selector targets the elements by what class they originate from. 
+4. id selector: helps you select elementsa in your code using their unique id's, which is formed by a "#".
+5. child selector
+psuedo selectors: these aren't your normal selectors because unlike the others that require a semi colon or not, they require a double colon and an 
+an attribute
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ccc8c8;
+    color:#444;
+    height: 100vh
+   
+}
+
+.Bio-card{
+    max-width: 700px;
+    background-color: white;
+}
+
+.Bio-header > h1{
+    font-weight: 500;
+    font-size: large;
+}
+
+.Bio-header > h3{
+    font-size: large;
+    font-weight: 300;
+}
+
+.Bio-header > img{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+p{
+    line-height: 1.6;
+    padding: 10px;
+
+
+
+
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #f4f4f4;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Card Container */
+.card {
+  background: white;
+  
+  
+  
+
+  
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background: #000; /* Black top */
+  color: white;
+}
+
+.profile-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1.5rem;
+  border: 4px solid white;
+}
+
+.info h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.info p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* About Section */
+.about {
+  padding: 2rem;
+  color: #333;
+}
+
+.about h2 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+.about p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+  font-size: 1rem;
+}
